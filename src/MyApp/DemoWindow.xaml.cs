@@ -24,18 +24,23 @@ namespace MyApp
             var ioc = IocHelper.Resolve();
             ConfigRepository = ioc.TryResolve<IMyAppConfigRepository>();
             DebugHelper = ioc.TryResolve<IDebugHelper>();
+            GifDemoHelper = ioc.TryResolve<GifDemoHelper>();
         }
 
         public IMyAppConfigRepository ConfigRepository { get; set; }
         public IDebugHelper DebugHelper { get; set; }
+        public GifDemoHelper GifDemoHelper { get; set; }
 
         private void CustomizeInitializeComponent()
         {
+            GifDemoHelper.Append(MyGif);
+            this.GridFront.Visibility = Visibility.Collapsed;
             this.Loaded += DemoWindow_Loaded;
             this.BtnDebug.Click += BtnDebug_Click;
             this.BtnException.Click += BtnException_Click;
             this.BtnLoadConfig.Click += BtnLoadConfig_Click;
             this.BtnPlay.Click += BtnPlay_Click;
+            this.BtnGif.Click += BtnGif_Click;
         }
 
         private void DemoWindow_Loaded(object sender, RoutedEventArgs e)
@@ -77,6 +82,11 @@ namespace MyApp
             CreateAndPlay(GridBackground);
         }
 
+        private void BtnGif_Click(object sender, RoutedEventArgs e)
+        {
+            GifDemoHelper.ShowGif();
+        }
+
         private void ShowMessage(string message)
         {
             this.TxtMessage.Text = message;
@@ -87,12 +97,23 @@ namespace MyApp
         private bool _playing = false;
         private void CreateAndPlay(Panel panel)
         {
+            var config = ConfigRepository.Get();
+            if (config != null)
+            {
+                if (!config.ShowVideo)
+                {
+                    ShowMessage("MediaDisabled");
+                    this.GridFront.Visibility = Visibility.Visible;
+                    return;
+                }
+            }
+            
             _playing = true;
             var mediaElement = new MediaElement();
             mediaElement.LoadedBehavior = MediaState.Manual;
             mediaElement.UnloadedBehavior = MediaState.Close;
             var videoFile = "video/sample.mp4";
-            VideoResourceHelper.MakeSureFileExist(videoFile);
+            ResourceFileHelper.MakeSureVideoExist(videoFile);
             mediaElement.Source = new Uri(videoFile, UriKind.Relative);
             mediaElement.Stretch = Stretch.Fill;
 

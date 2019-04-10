@@ -9,13 +9,13 @@
     <Grid>
         <Grid Grid.Row="0" Grid.Column="0" x:Name="GridBackground" ZIndex="1" Opacity="0.8">
         </Grid>
-        <Grid Grid.Row="0" Grid.Column="0" x:Name="GridFront" ZIndex="0" Visibility="Collapsed">
+        <Grid Grid.Row="0" Grid.Column="0" x:Name="GridFront" ZIndex="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="320*"/>
                 <RowDefinition Height="50*"/>
                 <RowDefinition Height="50*"/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" x:Name="MyContainer" >
+            <StackPanel Grid.Row="0" x:Name="MyGif" >
             </StackPanel>
             <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
                 <TextBlock x:Name="TxtMessage" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="Red"/>
@@ -25,7 +25,9 @@
                 <Button x:Name="BtnException" Content="Exception" Height="25" Margin="5"/>
                 <Button x:Name="BtnLoadConfig" Content="LoadConfig" Height="25" Margin="5"/>
                 <Button x:Name="BtnPlay" Content="Play" Height="25" Margin="5"/>
+                <Button x:Name="BtnGif" Content="Gif" Height="25" Margin="5"/>
             </StackPanel>
         </Grid>
+    
     </Grid>
 </Window>

@@ -1,5 +1,6 @@
 ﻿[
   {
-    "StartupUri": "DemoWindow.xaml"
+    "StartupUri": "DemoWindow.xaml",
+    "ShowVideo" :  true 
   }
 ]

@@ -32,6 +32,12 @@ namespace MyApp.Libs
                 return (T)instance;
             }
 
+            if (typeof(T) == typeof(GifDemoHelper))
+            {
+                dynamic instance = new GifDemoHelper();
+                return (T)instance;
+            }
+
             return default(T);
         }
 
