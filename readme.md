@@ -7,5 +7,6 @@
 - [x] json and file database support 20190410
 - [x] customize by MyAppConfig 20190410
 - [x] loading with playing video in front and hiding content in background
+- [x] refact code and add FileAutoCreate support
 - [] splash loading
 - [] gif support

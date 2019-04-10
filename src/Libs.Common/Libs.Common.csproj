@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileAutoCreate.cs" />
     <Compile Include="DebugHelper.cs" />
     <Compile Include="FileDbHelper.cs" />
     <Compile Include="JsonExtensions.cs" />
