@@ -21,6 +21,7 @@
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
             <Button x:Name="BtnDebug" Content="Debug" Height="25" Margin="5"/>
             <Button x:Name="BtnException" Content="Exception" Height="25" Margin="5"/>
+            <Button x:Name="BtnLoadConfig" Content="LoadConfig" Height="25" Margin="5"/>
         </StackPanel>
     </Grid>
 </Window>

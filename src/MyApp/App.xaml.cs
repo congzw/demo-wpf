@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using Libs.Common;
+using MyApp.Libs;
 
 namespace MyApp
 {
@@ -33,8 +34,19 @@ namespace MyApp
 
         private void App_Startup(object sender, StartupEventArgs e)
         {
-            //todo load by config
-            this.StartupUri = new Uri("DemoWindow.xaml", UriKind.Relative);
+            var ioc = IocHelper.Resolve();
+            var configRepository = ioc.TryResolve<IMyAppConfigRepository>();
+            var myAppConfig = configRepository.Get();
+            if (myAppConfig != null)
+            {
+                if (!string.IsNullOrWhiteSpace(myAppConfig.StartupUri))
+                {
+                    this.StartupUri = new Uri(myAppConfig.StartupUri, UriKind.Relative);
+                    return;
+                }
+            }
+
+            this.StartupUri = new Uri("MainWindow.xaml", UriKind.Relative);
         }
     }
 }
