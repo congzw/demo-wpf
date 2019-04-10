@@ -70,6 +70,7 @@
     <Compile Include="Libs\IocHelper.cs" />
     <Compile Include="Libs\MyAppConfig.cs" />
     <Compile Include="Libs\MyAppConfigRepository.cs" />
+    <Compile Include="Libs\VideoResourceHelper.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -110,6 +111,9 @@
       <Project>{2cf015cf-a11f-427a-863f-b0ee0a6faff1}</Project>
       <Name>Libs.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\space.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

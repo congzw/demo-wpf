@@ -6,22 +6,26 @@
         xmlns:local="clr-namespace:MyApp"
         mc:Ignorable="d"
         Title="DemoWindow" Height="450" Width="800">
-
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="320*"/>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="50*"/>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" x:Name="MyContainer" >
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
-            <TextBlock x:Name="TxtMessage" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="Red"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
-            <Button x:Name="BtnDebug" Content="Debug" Height="25" Margin="5"/>
-            <Button x:Name="BtnException" Content="Exception" Height="25" Margin="5"/>
-            <Button x:Name="BtnLoadConfig" Content="LoadConfig" Height="25" Margin="5"/>
-        </StackPanel>
+        <Grid Grid.Row="0" Grid.Column="0" x:Name="GridBackground" ZIndex="1" Opacity="0.8">
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="0" x:Name="GridFront" ZIndex="0" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="320*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" x:Name="MyContainer" >
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
+                <TextBlock x:Name="TxtMessage" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="Red"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Center">
+                <Button x:Name="BtnDebug" Content="Debug" Height="25" Margin="5"/>
+                <Button x:Name="BtnException" Content="Exception" Height="25" Margin="5"/>
+                <Button x:Name="BtnLoadConfig" Content="LoadConfig" Height="25" Margin="5"/>
+                <Button x:Name="BtnPlay" Content="Play" Height="25" Margin="5"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
