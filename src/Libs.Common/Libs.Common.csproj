@@ -47,8 +47,11 @@
     <Compile Include="FileAutoCreate.cs" />
     <Compile Include="DebugHelper.cs" />
     <Compile Include="FileDbHelper.cs" />
+    <Compile Include="GroupPolicyHelper.cs" />
     <Compile Include="JsonExtensions.cs" />
+    <Compile Include="ProcessHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_Internals\GroupPolicy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

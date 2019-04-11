@@ -1,7 +1,7 @@
 ﻿[
   {
     "StartupUri": "DemoWindow.xaml",
-    "ShowVideo": true,
-    "ShowSplash": true
+    "ShowVideo": false,
+    "ShowSplash": false
   }
 ]

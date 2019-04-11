@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Libs.Common;
 using MyApp.Libs;
+using MyApp.ViewModel;
 
 namespace MyApp
 {
@@ -19,6 +20,8 @@ namespace MyApp
             CustomizeInitializeComponent();
         }
 
+        public PolicyDemoViewModel PolicyDemo { get; set; }
+
         private void SetupIoc()
         {
             var ioc = IocHelper.Resolve();
@@ -26,7 +29,7 @@ namespace MyApp
             DebugHelper = ioc.TryResolve<IDebugHelper>();
             GifDemoHelper = ioc.TryResolve<GifDemoHelper>();
         }
-
+        
         public IMyAppConfigRepository ConfigRepository { get; set; }
         public IDebugHelper DebugHelper { get; set; }
         public GifDemoHelper GifDemoHelper { get; set; }
@@ -34,6 +37,10 @@ namespace MyApp
         private void CustomizeInitializeComponent()
         {
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            PolicyDemo = new PolicyDemoViewModel();
+            PolicyDemo.Init(this);
+
             GifDemoHelper.Append(MyGif);
             this.GridFront.Visibility = Visibility.Collapsed;
             this.Loaded += DemoWindow_Loaded;
@@ -88,7 +95,7 @@ namespace MyApp
             GifDemoHelper.ShowGif();
         }
 
-        private void ShowMessage(string message)
+        public void ShowMessage(string message)
         {
             this.TxtMessage.Text = message;
             this.TxtMessage.Visibility = Visibility.Visible;

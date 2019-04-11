@@ -10,7 +10,7 @@
 - [x] refact code and add FileAutoCreate support 20190410
 - [x] gif support 20190410
 - [x] splash loading 20190411
-- [] edit GroupPolicy support
+- [x] edit GroupPolicy support
 - [] call exe from wpf
 
 
