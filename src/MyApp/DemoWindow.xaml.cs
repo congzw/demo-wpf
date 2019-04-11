@@ -33,6 +33,7 @@ namespace MyApp
 
         private void CustomizeInitializeComponent()
         {
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             GifDemoHelper.Append(MyGif);
             this.GridFront.Visibility = Visibility.Collapsed;
             this.Loaded += DemoWindow_Loaded;

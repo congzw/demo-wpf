@@ -2,6 +2,7 @@
 using System.Windows;
 using Libs.Common;
 using MyApp.Libs;
+using MyApp.Libs.Splash;
 
 namespace MyApp
 {
@@ -37,16 +38,40 @@ namespace MyApp
             var ioc = IocHelper.Resolve();
             var configRepository = ioc.TryResolve<IMyAppConfigRepository>();
             var myAppConfig = configRepository.Get();
+            var showSplash = GetShowSplash(myAppConfig);
+            if (showSplash)
+            {
+                var shutdownMode = this.ShutdownMode;
+                Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
+                var splashWindow = new SplashWindow();
+                splashWindow.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                Splasher.AutoSplash(splashWindow, 1000, "页面加载中");
+                this.ShutdownMode = shutdownMode;
+            }
+
+            var startupUri = GetStartupUri(myAppConfig);
+            this.StartupUri = new Uri(startupUri, UriKind.Relative);
+        }
+
+        private string GetStartupUri(MyAppConfig myAppConfig)
+        {
             if (myAppConfig != null)
             {
                 if (!string.IsNullOrWhiteSpace(myAppConfig.StartupUri))
                 {
-                    this.StartupUri = new Uri(myAppConfig.StartupUri, UriKind.Relative);
-                    return;
+                    return myAppConfig.StartupUri;
                 }
             }
+            return "MainWindow.xaml";
+        }
 
-            this.StartupUri = new Uri("MainWindow.xaml", UriKind.Relative);
+        private bool GetShowSplash(MyAppConfig myAppConfig)
+        {
+            if (myAppConfig == null)
+            {
+                return false;
+            }
+            return myAppConfig.ShowSplash;
         }
     }
 }

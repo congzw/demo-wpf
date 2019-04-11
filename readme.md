@@ -9,4 +9,6 @@
 - [x] loading with playing video in front and hiding content in background
 - [x] refact code and add FileAutoCreate support
 - [x] gif support
-- [] splash loading
+- [x] splash loading
+
+
