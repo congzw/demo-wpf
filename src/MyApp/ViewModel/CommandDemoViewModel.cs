@@ -21,6 +21,17 @@ namespace MyApp.ViewModel
         private void BtnExplorer_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             Command.Run("explorer.exe");
+            
+            //Command.Run("git --version");
+
+            //string gitCommand = "git";
+            //string gitAddArgument = @"add -A";
+            //string gitCommitArgument = @"commit ""explanations_of_changes"" ";
+            //string gitPushArgument = @"push our_remote";
+
+            //Process.Start(gitCommand, gitAddArgument);
+            //Process.Start(gitCommand, gitCommitArgument);
+            //Process.Start(gitCommand, gitPushArgument);
         }
 
         private void BtnShutdown_Click(object sender, System.Windows.RoutedEventArgs e)
