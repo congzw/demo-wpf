@@ -11,6 +11,6 @@
 - [x] gif support 20190410
 - [x] splash loading 20190411
 - [x] edit GroupPolicy support
-- [] call exe from wpf
+- [x] call exe from wpf
 
 

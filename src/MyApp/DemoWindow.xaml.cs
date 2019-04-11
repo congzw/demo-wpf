@@ -21,6 +21,7 @@ namespace MyApp
         }
 
         public PolicyDemoViewModel PolicyDemo { get; set; }
+        public CommandDemoViewModel CommandDemo { get; set; }
 
         private void SetupIoc()
         {
@@ -40,6 +41,9 @@ namespace MyApp
 
             PolicyDemo = new PolicyDemoViewModel();
             PolicyDemo.Init(this);
+
+            CommandDemo = new CommandDemoViewModel();
+            CommandDemo.Init(this);
 
             GifDemoHelper.Append(MyGif);
             this.GridFront.Visibility = Visibility.Collapsed;

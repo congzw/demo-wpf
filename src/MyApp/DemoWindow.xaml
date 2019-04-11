@@ -15,6 +15,7 @@
                 <RowDefinition Height="50*"/>
                 <RowDefinition Height="50*"/>
                 <RowDefinition Height="50*"/>
+                <RowDefinition Height="50*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0" x:Name="MyGif" >
             </StackPanel>
@@ -32,6 +33,12 @@
                 <Button x:Name="BtnGetShell" Content="GetShell" Height="25" Margin="5"/>
                 <Button x:Name="BtnSetShell" Content="SetShell" Height="25" Margin="5"/>
                 <Button x:Name="BtnResetShell" Content="ResetShell" Height="25" Margin="5"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="4" HorizontalAlignment="Center">
+                <Button x:Name="BtnExplorer" Content="Explorer" Height="25" Margin="5"/>
+                <Button x:Name="BtnLogoff" Content="Logoff" Height="25" Margin="5"/>
+                <Button x:Name="BtnRestart" Content="Restart" Height="25" Margin="5"/>
+                <Button x:Name="BtnShutdown" Content="Shutdown" Height="25" Margin="5"/>
             </StackPanel>
         </Grid>
     

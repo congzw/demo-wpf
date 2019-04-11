@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandHelper.cs" />
     <Compile Include="FileAutoCreate.cs" />
     <Compile Include="DebugHelper.cs" />
     <Compile Include="FileDbHelper.cs" />
