@@ -57,7 +57,7 @@ namespace MyApp
 
         private void DemoWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            CreateAndPlay(GridBackground);
+            CreateAndPlay(GridBackground, true);
         }
 
         private void BtnDebug_Click(object sender, RoutedEventArgs e)
@@ -91,7 +91,7 @@ namespace MyApp
                 ShowMessage("playing, wait!");
                 return;
             }
-            CreateAndPlay(GridBackground);
+            CreateAndPlay(GridBackground, false);
         }
 
         private void BtnGif_Click(object sender, RoutedEventArgs e)
@@ -107,16 +107,19 @@ namespace MyApp
 
         //解决多次播放的问题
         private bool _playing = false;
-        private void CreateAndPlay(Panel panel)
+        private void CreateAndPlay(Panel panel, bool checkConfig)
         {
-            var config = ConfigRepository.Get();
-            if (config != null)
+            if (checkConfig)
             {
-                if (!config.ShowVideo)
+                var config = ConfigRepository.Get();
+                if (config != null)
                 {
-                    ShowMessage("MediaDisabled");
-                    this.GridFront.Visibility = Visibility.Visible;
-                    return;
+                    if (!config.ShowVideo)
+                    {
+                        ShowMessage("MediaDisabled");
+                        this.GridFront.Visibility = Visibility.Visible;
+                        return;
+                    }
                 }
             }
             
