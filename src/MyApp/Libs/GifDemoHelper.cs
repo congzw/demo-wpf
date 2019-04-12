@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using MyApp.Properties;
+using Libs.Res;
 using XamlAnimatedGif;
 
 namespace MyApp.Libs
@@ -32,13 +32,10 @@ namespace MyApp.Libs
             {
                 return;
             }
-
-            ResourceFileHelper.MakeSureGifExist(_gifs[0], Resources.Loading01);
-            ResourceFileHelper.MakeSureGifExist(_gifs[1], Resources.Loading02);
             panel.Children.Add(Gif);
         }
 
-        private readonly string[] _gifs = new[] {"Images/Loading01.gif", "Images/Loading02.gif"};
+        private readonly string[] _gifs = new[] {FilesHelper.Loading01Gif, FilesHelper.Loading02Gif};
 
         private int index = 0;
         public void ShowGif()

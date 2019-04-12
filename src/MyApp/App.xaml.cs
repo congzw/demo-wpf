@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using Libs.Common;
+using Libs.Res;
 using MyApp.Libs;
 using MyApp.Libs.Splash;
 
@@ -15,6 +16,7 @@ namespace MyApp
         {
             this.DispatcherUnhandledException += App_DispatcherUnhandledException;
             this.Startup += App_Startup;
+            FilesHelper.MakeSureResourcesExist();
         }
 
         private void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)

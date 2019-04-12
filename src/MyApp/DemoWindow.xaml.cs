@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Libs.Common;
+using Libs.Res;
 using MyApp.Libs;
 using MyApp.ViewModel;
 
@@ -127,9 +128,7 @@ namespace MyApp
             var mediaElement = new MediaElement();
             mediaElement.LoadedBehavior = MediaState.Manual;
             mediaElement.UnloadedBehavior = MediaState.Close;
-            var videoFile = "video/sample.mp4";
-            ResourceFileHelper.MakeSureVideoExist(videoFile);
-            mediaElement.Source = new Uri(videoFile, UriKind.Relative);
+            mediaElement.Source = new Uri(FilesHelper.SmallMp4, UriKind.Relative);
             mediaElement.Stretch = Stretch.Fill;
 
             mediaElement.MediaOpened += (sender, args) =>

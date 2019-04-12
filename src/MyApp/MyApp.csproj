@@ -80,7 +80,6 @@
     <Compile Include="Libs\IocHelper.cs" />
     <Compile Include="Libs\MyAppConfig.cs" />
     <Compile Include="Libs\MyAppConfigRepository.cs" />
-    <Compile Include="Libs\ResourceFileHelper.cs" />
     <Compile Include="Libs\Splash\DispatcherHelper.cs" />
     <Compile Include="Libs\Splash\MessageListener.cs" />
     <Compile Include="Libs\Splash\Splasher.cs" />
@@ -129,15 +128,10 @@
       <Project>{2cf015cf-a11f-427a-863f-b0ee0a6faff1}</Project>
       <Name>Libs.Common</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\space.mp4" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Loading01.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Loading02.gif" />
+    <ProjectReference Include="..\Libs.Res\Libs.Res.csproj">
+      <Project>{03a57b4d-43e0-41c3-ad43-5566c4b5b2f8}</Project>
+      <Name>Libs.Res</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
